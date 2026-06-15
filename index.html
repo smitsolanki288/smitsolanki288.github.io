@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smit Solanki — Full-Stack Developer & Automation Specialist</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-2: #f6f6f6;
+      --text: #111111;
+      --text-2: #555555;
+      --text-3: #999999;
+      --border: #e4e4e4;
+      --border-2: #cccccc;
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.5; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2rem; border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; background: var(--bg); z-index: 100;
+    }
+    .nav-logo { font-size: 15px; font-weight: 600; letter-spacing: -0.3px; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { font-size: 13px; color: var(--text-2); cursor: pointer; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      font-size: 13px; padding: 6px 18px; border-radius: var(--radius-md);
+      border: 1px solid var(--border-2); background: transparent;
+      color: var(--text); cursor: pointer; font-family: var(--font); transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--bg-2); }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid; grid-template-columns: 1fr 290px; gap: 2.5rem;
+      padding: 3.5rem 2rem; border-bottom: 1px solid var(--border);
+      max-width: 960px; margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--text-3); margin-bottom: 1rem;
+    }
+    .hero-name {
+      font-size: 38px; font-weight: 600; line-height: 1.1;
+      letter-spacing: -1.2px; margin-bottom: 1rem;
+    }
+    .hero-name span { color: var(--text-2); font-weight: 400; }
+    .hero-desc {
+      font-size: 14px; color: var(--text-2); line-height: 1.75;
+      margin-bottom: 1.75rem; max-width: 420px;
+    }
+    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-primary {
+      padding: 10px 24px; border-radius: var(--radius-md);
+      background: var(--text); color: var(--bg);
+      border: none; font-size: 13px; cursor: pointer; font-family: var(--font); transition: opacity 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.82; }
+    .btn-ghost {
+      padding: 10px 24px; border-radius: var(--radius-md);
+      border: 1px solid var(--border-2); background: transparent;
+      color: var(--text); font-size: 13px; cursor: pointer; font-family: var(--font);
+      display: inline-flex; align-items: center; gap: 6px; transition: background 0.15s;
+    }
+    .btn-ghost:hover { background: var(--bg-2); }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      background: var(--bg-2); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1.25rem;
+    }
+    .cc-title {
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-3); margin-bottom: 1rem;
+    }
+    .cc-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 0.65rem 0; border-bottom: 1px solid var(--border); text-decoration: none;
+      transition: background 0.1s;
+    }
+    .cc-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .cc-row:first-of-type { padding-top: 0; }
+    .cc-icon { font-size: 16px; color: var(--text-2); width: 20px; flex-shrink: 0; text-align: center; }
+    .cc-label { font-size: 11px; color: var(--text-3); margin-bottom: 1px; }
+    .cc-value { font-size: 12px; font-weight: 500; color: var(--text); word-break: break-all; }
+    .cc-row:hover .cc-value { color: #1a5faa; }
+    .status-dot {
+      display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+      background: #3fa55a; margin-right: 5px; vertical-align: middle;
+    }
+
+    /* ── LAYOUT HELPERS ── */
+    .page-wrap { max-width: 960px; margin: 0 auto; }
+    .divider { border: none; border-top: 1px solid var(--border); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; }
+    .section { padding: 2.5rem 2rem; }
+    .section-label {
+      font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--text-3); margin-bottom: 1.5rem;
+    }
+    .col-divider { border-left: 1px solid var(--border); }
+
+    /* ── EXPERIENCE ── */
+    .exp-item {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 8px; padding: 0.8rem 0; border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .exp-role { font-size: 14px; font-weight: 500; }
+    .exp-co { font-size: 12px; color: var(--text-2); margin-top: 2px; }
+    .exp-year { font-size: 11px; color: var(--text-3); white-space: nowrap; padding-top: 3px; }
+
+    /* ── EDUCATION ── */
+    .edu-block {
+      padding: 1rem; background: var(--bg-2);
+      border-radius: var(--radius-md); border: 1px solid var(--border);
+    }
+    .edu-deg { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .edu-meta { font-size: 12px; color: var(--text-2); margin-bottom: 10px; }
+    .cgpa {
+      display: inline-block; font-size: 12px; font-weight: 600;
+      padding: 4px 12px; border-radius: 20px;
+      background: var(--bg); border: 1px solid var(--border);
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.25rem 2rem;
+    }
+    .skill-group-name { font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag {
+      font-size: 11px; padding: 3px 10px; border-radius: 20px;
+      background: var(--bg-2); border: 1px solid var(--border); color: var(--text-2);
+    }
+
+    /* ── PROJECTS ── */
+    .proj-tabs { display: flex; gap: 6px; margin-bottom: 1.5rem; }
+    .proj-tab {
+      font-size: 12px; padding: 6px 16px; border-radius: var(--radius-md);
+      border: 1px solid var(--border); background: transparent;
+      color: var(--text-2); cursor: pointer; font-family: var(--font); transition: all 0.15s;
+    }
+    .proj-tab.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .proj-tab:hover:not(.active) { background: var(--bg-2); }
+
+    .proj-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px;
+    }
+    .proj-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1.125rem;
+      display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s;
+    }
+    .proj-card:hover { border-color: var(--border-2); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .proj-icon { font-size: 22px; }
+    .proj-title { font-size: 13px; font-weight: 500; }
+    .proj-desc { font-size: 12px; color: var(--text-2); line-height: 1.65; flex: 1; }
+    .proj-stack { display: flex; flex-wrap: wrap; gap: 4px; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1.25rem 2rem; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+      font-size: 11px; color: var(--text-3); max-width: 960px; margin: 0 auto;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .hero { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .col-divider { border-left: none; border-top: 1px solid var(--border); }
+      .hero-name { font-size: 28px; }
+      nav { padding: 0.875rem 1rem; }
+      .nav-links { display: none; }
+      .section { padding: 2rem 1rem; }
+      .hero { padding: 2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Smit Solanki</span>
+  <div class="nav-links">
+    <a onclick="document.getElementById('exp-sec').scrollIntoView({behavior:'smooth'})">Experience</a>
+    <a onclick="document.getElementById('skills-sec').scrollIntoView({behavior:'smooth'})">Skills</a>
+    <a onclick="document.getElementById('proj-sec').scrollIntoView({behavior:'smooth'})">Projects</a>
+    <a onclick="document.getElementById('contact-sec').scrollIntoView({behavior:'smooth'})">Contact</a>
+  </div>
+  <button class="nav-cta" onclick="window.location='mailto:smitsolanki288@gmail.com'">Hire me</button>
+</nav>
+
+<!-- HERO -->
+<div class="page-wrap">
+  <div class="hero">
+    <div>
+      <p class="hero-eyebrow">Full-Stack Developer &amp; Automation Specialist</p>
+      <h1 class="hero-name">Smit Solanki —<br><span>code that works,<br>workflows that flow.</span></h1>
+      <p class="hero-desc">4+ years delivering web applications and business automation across CRM, e-commerce, and workflow integrations. Based in Rajkot, India — worked with agencies in Pune.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('proj-sec').scrollIntoView({behavior:'smooth'})">View projects</button>
+        <a class="btn-ghost" href="mailto:smitsolanki288@gmail.com">
+          <i class="ti ti-mail"></i> Get in touch
+        </a>
+      </div>
+    </div>
+
+    <!-- CONTACT CARD -->
+    <div class="contact-card">
+      <p class="cc-title">Contact details</p>
+
+      <a class="cc-row" href="mailto:smitsolanki288@gmail.com">
+        <i class="ti ti-mail cc-icon"></i>
+        <div>
+          <p class="cc-label">Email</p>
+          <p class="cc-value">smitsolanki288@gmail.com</p>
+        </div>
+      </a>
+
+      <a class="cc-row" href="https://github.com/smitsolanki288" target="_blank" rel="noopener">
+        <i class="ti ti-brand-github cc-icon"></i>
+        <div>
+          <p class="cc-label">GitHub</p>
+          <p class="cc-value">github.com/smitsolanki288</p>
+        </div>
+      </a>
+
+      <a class="cc-row" href="https://www.linkedin.com/in/smit-solanki-415a88414" target="_blank" rel="noopener">
+        <i class="ti ti-brand-linkedin cc-icon"></i>
+        <div>
+          <p class="cc-label">LinkedIn</p>
+          <p class="cc-value">Smit Solanki</p>
+        </div>
+      </a>
+
+      <div class="cc-row">
+        <i class="ti ti-map-pin cc-icon"></i>
+        <div>
+          <p class="cc-label">Location</p>
+          <p class="cc-value">Rajkot, Gujarat, India</p>
+        </div>
+      </div>
+
+      <div class="cc-row">
+        <i class="ti ti-circle-check cc-icon" style="color:#3fa55a;"></i>
+        <div>
+          <p class="cc-label">Status</p>
+          <p class="cc-value"><span class="status-dot"></span>Available for projects</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- EXPERIENCE + EDUCATION -->
+<div class="page-wrap">
+  <div class="two-col" id="exp-sec">
+    <div class="section">
+      <p class="section-label">Work experience</p>
+      <div class="exp-item">
+        <div>
+          <p class="exp-role">Developer</p>
+          <p class="exp-co">Soft Tech &middot; Pune</p>
+        </div>
+        <span class="exp-year">2025 — Present</span>
+      </div>
+      <div class="exp-item">
+        <div>
+          <p class="exp-role">Developer</p>
+          <p class="exp-co">Smart Solution &middot; Pune</p>
+        </div>
+        <span class="exp-year">2023 — 2025</span>
+      </div>
+      <div class="exp-item">
+        <div>
+          <p class="exp-role">Developer</p>
+          <p class="exp-co">S.S. Infotech &middot; Rajkot</p>
+        </div>
+        <span class="exp-year">2021 — 2023</span>
+      </div>
+    </div>
+
+    <div class="section col-divider">
+      <p class="section-label">Education</p>
+      <div class="edu-block">
+        <p class="edu-deg">B.E. in Computer Engineering</p>
+        <p class="edu-meta">Gujarat Technological University</p>
+        <span class="cgpa">CGPA — 8.90 / 10</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<div class="page-wrap">
+  <div class="section" id="skills-sec">
+    <p class="section-label">Technical skills</p>
+    <div class="skills-grid">
+      <div>
+        <p class="skill-group-name">Automation & Workflows</p>
+        <div class="tags">
+          <span class="tag">n8n</span>
+          <span class="tag">Zapier</span>
+          <span class="tag">REST API</span>
+          <span class="tag">Webhooks</span>
+          <span class="tag">Google Sheets</span>
+        </div>
+      </div>
+      <div>
+        <p class="skill-group-name">CRM & Marketing</p>
+        <div class="tags">
+          <span class="tag">GoHighLevel</span>
+          <span class="tag">HubSpot</span>
+          <span class="tag">Salesforce</span>
+          <span class="tag">Lead Nurturing</span>
+          <span class="tag">Email & SMS</span>
+        </div>
+      </div>
+      <div>
+        <p class="skill-group-name">Frontend</p>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">jQuery</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">React.js</span>
+          <span class="tag">Next.js</span>
+        </div>
+      </div>
+      <div>
+        <p class="skill-group-name">Backend</p>
+        <div class="tags">
+          <span class="tag">PHP</span>
+          <span class="tag">Laravel</span>
+          <span class="tag">CodeIgniter</span>
+          <span class="tag">Node.js</span>
+        </div>
+      </div>
+      <div>
+        <p class="skill-group-name">CMS & E-commerce</p>
+        <div class="tags">
+          <span class="tag">WordPress</span>
+          <span class="tag">Shopify</span>
+          <span class="tag">Liquid</span>
+          <span class="tag">Webflow</span>
+        </div>
+      </div>
+      <div>
+        <p class="skill-group-name">Database</p>
+        <div class="tags">
+          <span class="tag">MySQL</span>
+          <span class="tag">Data Sync</span>
+          <span class="tag">Pipeline Mgmt</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PROJECTS -->
+<div class="page-wrap">
+  <div class="section" id="proj-sec">
+    <p class="section-label">Projects</p>
+    <div class="proj-tabs">
+      <button class="proj-tab active" onclick="filterP('all',this)">All</button>
+      <button class="proj-tab" onclick="filterP('web',this)">Web development</button>
+      <button class="proj-tab" onclick="filterP('auto',this)">Automation</button>
+    </div>
+    <div class="proj-grid" id="pg">
+
+      <div class="proj-card" data-cat="web">
+        <div class="proj-icon">🛒</div>
+        <p class="proj-title">E-Commerce Platform</p>
+        <p class="proj-desc">Custom Shopify storefront with Liquid templating, product filters, and dynamic cart logic.</p>
+        <div class="proj-stack">
+          <span class="tag">Shopify</span><span class="tag">Liquid</span><span class="tag">JavaScript</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="web">
+        <div class="proj-icon">👥</div>
+        <p class="proj-title">Employee Management System</p>
+        <p class="proj-desc">HR system for attendance, leave, payroll, and role-based access control.</p>
+        <div class="proj-stack">
+          <span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">MySQL</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="web">
+        <div class="proj-icon">🍽️</div>
+        <p class="proj-title">Restaurant Booking & Menu App</p>
+        <p class="proj-desc">Table reservation system with live menu management on custom WordPress + PHP.</p>
+        <div class="proj-stack">
+          <span class="tag">WordPress</span><span class="tag">PHP</span><span class="tag">jQuery</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="web">
+        <div class="proj-icon">📦</div>
+        <p class="proj-title">Inventory Management System</p>
+        <p class="proj-desc">Stock tracking, supplier management, and low-inventory alerts for retail businesses.</p>
+        <div class="proj-stack">
+          <span class="tag">PHP</span><span class="tag">CodeIgniter</span><span class="tag">MySQL</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="auto">
+        <div class="proj-icon">🔁</div>
+        <p class="proj-title">Lead Nurturing Automation</p>
+        <p class="proj-desc">Automated email and SMS follow-up sequences triggered by lead actions in GHL.</p>
+        <div class="proj-stack">
+          <span class="tag">GoHighLevel</span><span class="tag">Zapier</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="auto">
+        <div class="proj-icon">🔗</div>
+        <p class="proj-title">Multi-Platform Data Sync</p>
+        <p class="proj-desc">Real-time pipeline connecting SaaS tools via n8n and REST APIs into Google Sheets.</p>
+        <div class="proj-stack">
+          <span class="tag">n8n</span><span class="tag">REST API</span><span class="tag">Google Sheets</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="auto">
+        <div class="proj-icon">🛍️</div>
+        <p class="proj-title">E-Commerce Order Automation</p>
+        <p class="proj-desc">Syncs Shopify orders into HubSpot and triggers fulfilment and customer notification workflows.</p>
+        <div class="proj-stack">
+          <span class="tag">Zapier</span><span class="tag">HubSpot</span><span class="tag">Shopify</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="auto">
+        <div class="proj-icon">🏢</div>
+        <p class="proj-title">Agency CRM Setup & Automation</p>
+        <p class="proj-desc">White-label GoHighLevel setup — pipelines, sub-accounts, and full automation config.</p>
+        <div class="proj-stack">
+          <span class="tag">GoHighLevel</span><span class="tag">White Label</span>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="auto">
+        <div class="proj-icon">📈</div>
+        <p class="proj-title">Sales Pipeline Automation</p>
+        <p class="proj-desc">Automated deal stage updates, task creation, and alerts in Salesforce via Zapier triggers.</p>
+        <div class="proj-stack">
+          <span class="tag">Salesforce</span><span class="tag">Zapier</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- CONTACT SECTION -->
+<div class="page-wrap">
+  <div class="section" id="contact-sec">
+    <p class="section-label">Get in touch</p>
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap:12px; max-width:700px;">
+
+      <a href="mailto:smitsolanki288@gmail.com" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-md);transition:border-color 0.15s;">
+        <i class="ti ti-mail" style="font-size:18px;color:#555;"></i>
+        <div>
+          <p style="font-size:11px;color:var(--text-3);margin-bottom:2px;">Email</p>
+          <p style="font-size:12px;font-weight:500;">smitsolanki288@gmail.com</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/smitsolanki288" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-md);transition:border-color 0.15s;">
+        <i class="ti ti-brand-github" style="font-size:18px;color:#555;"></i>
+        <div>
+          <p style="font-size:11px;color:var(--text-3);margin-bottom:2px;">GitHub</p>
+          <p style="font-size:12px;font-weight:500;">smitsolanki288</p>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/smit-solanki-415a88414" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-md);transition:border-color 0.15s;">
+        <i class="ti ti-brand-linkedin" style="font-size:18px;color:#555;"></i>
+        <div>
+          <p style="font-size:11px;color:var(--text-3);margin-bottom:2px;">LinkedIn</p>
+          <p style="font-size:12px;font-weight:500;">Smit Solanki</p>
+        </div>
+      </a>
+
+      <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-md);">
+        <i class="ti ti-map-pin" style="font-size:18px;color:#555;"></i>
+        <div>
+          <p style="font-size:11px;color:var(--text-3);margin-bottom:2px;">Location</p>
+          <p style="font-size:12px;font-weight:500;">Rajkot, Gujarat, India</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span><span class="status-dot"></span>Available for freelance &amp; full-time projects</span>
+  <span>smitsolanki288@gmail.com &nbsp;&middot;&nbsp; Rajkot, India &nbsp;&middot;&nbsp; &copy; 2025 Smit Solanki</span>
+</footer>
+
+<script>
+  function filterP(cat, btn) {
+    document.querySelectorAll('.proj-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.proj-card').forEach(c => {
+      c.style.display = (cat === 'all' || c.dataset.cat === cat) ? 'flex' : 'none';
+    });
+  }
+</script>
+</body>
+</html>
