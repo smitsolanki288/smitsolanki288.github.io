@@ -7,43 +7,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #ffffff;
-      --bg-2: #f6f6f6;
-      --text: #111111;
-      --text-2: #555555;
-      --text-3: #999999;
-      --border: #e4e4e4;
-      --border-2: #cccccc;
-      --radius-sm: 6px;
-      --radius-md: 8px;
-      --radius-lg: 12px;
-      --font: 'Inter', system-ui, -apple-system, sans-serif;
-      --max: 980px;
+      --bg: #ffffff; --bg-2: #f6f6f6; --text: #111111; --text-2: #555555; --text-3: #999999;
+      --border: #e4e4e4; --border-2: #cccccc;
+      --radius-sm: 6px; --radius-md: 8px; --radius-lg: 12px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif; --max: 980px;
     }
-
     body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.5; }
     a { color: inherit; text-decoration: none; }
 
-    /* ── NAV ── */
-    nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 2rem; border-bottom: 1px solid var(--border);
-      position: sticky; top: 0; background: var(--bg); z-index: 100;
-    }
-    .nav-inner { max-width: var(--max); margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
-    nav { padding: 1rem 2rem; }
+    /* NAV */
+    nav { border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+    .nav-inner { max-width: var(--max); margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
     .nav-logo { font-size: 15px; font-weight: 600; letter-spacing: -0.3px; }
-    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links { display: flex; gap: 1.5rem; }
     .nav-links a { font-size: 13px; color: var(--text-2); cursor: pointer; transition: color 0.15s; }
     .nav-links a:hover { color: var(--text); }
     .nav-right { display: flex; gap: 10px; align-items: center; }
     .nav-resume {
       font-size: 13px; padding: 6px 16px; border-radius: var(--radius-md);
-      background: var(--text); color: var(--bg);
-      border: none; cursor: pointer; font-family: var(--font);
-      display: inline-flex; align-items: center; gap: 6px; transition: opacity 0.15s;
+      background: var(--text); color: var(--bg); border: none; cursor: pointer;
+      font-family: var(--font); display: inline-flex; align-items: center; gap: 6px; transition: opacity 0.15s;
     }
     .nav-resume:hover { opacity: 0.82; }
     .nav-cta {
@@ -53,159 +37,103 @@
     }
     .nav-cta:hover { background: var(--bg-2); }
 
-    /* ── WRAPPER ── */
+    /* WRAP */
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    .divider { border: none; border-top: 1px solid var(--border); }
+    .section { padding: 2.5rem 0; }
+    .section-label { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-3); margin-bottom: 1.5rem; }
 
-    /* ── HERO ── */
-    .hero {
-      display: grid; grid-template-columns: 1fr 290px; gap: 3rem;
-      padding: 3.5rem 0; border-bottom: 1px solid var(--border);
-      align-items: start;
-    }
+    /* HERO */
+    .hero { display: grid; grid-template-columns: 1fr 290px; gap: 3rem; padding: 3.5rem 0; border-bottom: 1px solid var(--border); align-items: start; }
     .hero-eyebrow { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-3); margin-bottom: 1rem; }
     .hero-name { font-size: 38px; font-weight: 600; line-height: 1.1; letter-spacing: -1.2px; margin-bottom: 1rem; }
     .hero-name span { color: var(--text-2); font-weight: 400; }
     .hero-desc { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-bottom: 1.75rem; max-width: 420px; }
     .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn-primary {
-      padding: 10px 22px; border-radius: var(--radius-md);
-      background: var(--text); color: var(--bg);
-      border: none; font-size: 13px; cursor: pointer; font-family: var(--font); transition: opacity 0.15s;
-      display: inline-flex; align-items: center; gap: 6px;
-    }
+    .btn-primary { padding: 10px 22px; border-radius: var(--radius-md); background: var(--text); color: var(--bg); border: none; font-size: 13px; cursor: pointer; font-family: var(--font); display: inline-flex; align-items: center; gap: 6px; transition: opacity 0.15s; }
     .btn-primary:hover { opacity: 0.82; }
-    .btn-ghost {
-      padding: 10px 22px; border-radius: var(--radius-md);
-      border: 1px solid var(--border-2); background: transparent;
-      color: var(--text); font-size: 13px; cursor: pointer; font-family: var(--font);
-      display: inline-flex; align-items: center; gap: 6px; transition: background 0.15s;
-    }
+    .btn-ghost { padding: 10px 22px; border-radius: var(--radius-md); border: 1px solid var(--border-2); background: transparent; color: var(--text); font-size: 13px; cursor: pointer; font-family: var(--font); display: inline-flex; align-items: center; gap: 6px; transition: background 0.15s; }
     .btn-ghost:hover { background: var(--bg-2); }
 
-    /* ── CONTACT CARD ── */
+    /* CONTACT CARD */
     .contact-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem; }
     .cc-title { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); margin-bottom: 1rem; }
-    .cc-row {
-      display: flex; align-items: center; gap: 12px;
-      padding: 0.65rem 0; border-bottom: 1px solid var(--border); transition: opacity 0.15s;
-    }
+    .cc-row { display: flex; align-items: center; gap: 12px; padding: 0.65rem 0; border-bottom: 1px solid var(--border); transition: opacity 0.15s; }
     .cc-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .cc-row:hover { opacity: 0.75; }
+    .cc-row:hover { opacity: 0.7; }
     .cc-icon { font-size: 16px; color: var(--text-2); width: 20px; flex-shrink: 0; text-align: center; }
     .cc-label { font-size: 11px; color: var(--text-3); margin-bottom: 1px; }
     .cc-value { font-size: 12px; font-weight: 500; color: var(--text); word-break: break-all; }
     .status-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #3fa55a; margin-right: 5px; vertical-align: middle; }
 
-    /* ── DIVIDER / SECTIONS ── */
-    .divider { border: none; border-top: 1px solid var(--border); }
-    .section { padding: 2.5rem 0; }
-    .section-label { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-3); margin-bottom: 1.5rem; }
+    /* EXP / EDU */
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-    .col-divider { border-left: 1px solid var(--border); padding-left: 2.5rem; }
     .col-pad { padding-right: 2.5rem; }
-
-    /* ── EXPERIENCE ── */
+    .col-divider { border-left: 1px solid var(--border); padding-left: 2.5rem; }
     .exp-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; padding: 0.8rem 0; border-bottom: 1px solid var(--border); }
     .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
     .exp-role { font-size: 14px; font-weight: 500; }
     .exp-co { font-size: 12px; color: var(--text-2); margin-top: 2px; }
     .exp-year { font-size: 11px; color: var(--text-3); white-space: nowrap; padding-top: 3px; }
-
-    /* ── EDUCATION ── */
     .edu-block { padding: 1rem; background: var(--bg-2); border-radius: var(--radius-md); border: 1px solid var(--border); }
     .edu-deg { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
     .edu-meta { font-size: 12px; color: var(--text-2); margin-bottom: 10px; }
     .cgpa { display: inline-block; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; background: var(--bg); border: 1px solid var(--border); }
 
-    /* ── SKILLS ── */
+    /* SKILLS */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.25rem 2rem; }
     .skill-group-name { font-size: 13px; font-weight: 500; margin-bottom: 8px; }
     .tags { display: flex; flex-wrap: wrap; gap: 5px; }
     .tag { font-size: 11px; padding: 3px 10px; border-radius: 20px; background: var(--bg-2); border: 1px solid var(--border); color: var(--text-2); }
 
-    /* ── TABS ── */
-    .proj-tabs { display: flex; gap: 6px; margin-bottom: 1.5rem; flex-wrap: wrap; }
-    .proj-tab {
-      font-size: 12px; padding: 6px 16px; border-radius: var(--radius-md);
-      border: 1px solid var(--border); background: transparent;
-      color: var(--text-2); cursor: pointer; font-family: var(--font); transition: all 0.15s;
-    }
+    /* TABS */
+    .proj-tabs { display: flex; gap: 6px; margin-bottom: 1.75rem; flex-wrap: wrap; }
+    .proj-tab { font-size: 12px; padding: 6px 16px; border-radius: var(--radius-md); border: 1px solid var(--border); background: transparent; color: var(--text-2); cursor: pointer; font-family: var(--font); transition: all 0.15s; display: inline-flex; align-items: center; gap: 5px; }
     .proj-tab.active { background: var(--text); color: var(--bg); border-color: var(--text); }
     .proj-tab:hover:not(.active) { background: var(--bg-2); }
 
-    /* ── PROJECT CARDS ── */
+    /* PROJECT CARDS */
     .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
-    .proj-card {
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 1.125rem;
-      display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s, box-shadow 0.15s;
-    }
+    .proj-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.125rem; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s, box-shadow 0.15s; }
     .proj-card:hover { border-color: var(--border-2); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
     .proj-icon { font-size: 22px; }
     .proj-title { font-size: 13px; font-weight: 500; }
     .proj-desc { font-size: 12px; color: var(--text-2); line-height: 1.65; flex: 1; }
     .proj-stack { display: flex; flex-wrap: wrap; gap: 4px; }
     .proj-footer { display: flex; gap: 6px; margin-top: 4px; }
-    .proj-btn {
-      display: inline-flex; align-items: center; gap: 5px;
-      font-size: 11px; padding: 4px 10px; border-radius: var(--radius-sm);
-      border: 1px solid var(--border); color: var(--text-2);
-      background: var(--bg-2); cursor: pointer; text-decoration: none; transition: border-color 0.15s, color 0.15s;
-    }
+    .proj-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; padding: 4px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border); color: var(--text-2); background: var(--bg-2); cursor: pointer; text-decoration: none; transition: border-color 0.15s, color 0.15s; }
     .proj-btn:hover { border-color: var(--border-2); color: var(--text); }
 
-    /* ── WORK EXAMPLES ── */
-    .examples-section { display: none; }
-    .examples-section.active { display: block; }
-    .ex-group { margin-bottom: 2rem; }
-    .ex-group-title {
-      font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--text-3); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
-    }
-    .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
-    .ex-card {
-      display: flex; align-items: center; justify-content: space-between; gap: 10px;
-      padding: 12px 14px; background: var(--bg); border: 1px solid var(--border);
-      border-radius: var(--radius-md); transition: border-color 0.15s, box-shadow 0.15s;
-    }
+    /* WORK EXAMPLES */
+    .ex-group { margin-bottom: 2.25rem; }
+    .ex-group:last-child { margin-bottom: 0; }
+    .ex-group-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .ex-group-title { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); }
+    .ex-platform-badge { font-size: 10px; padding: 2px 8px; border-radius: 20px; border: 1px solid var(--border); color: var(--text-3); background: var(--bg-2); }
+    .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+    .ex-card { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-md); transition: border-color 0.15s, box-shadow 0.15s; }
     .ex-card:hover { border-color: var(--border-2); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
     .ex-url { font-size: 13px; font-weight: 500; color: var(--text); }
     .ex-sub { font-size: 11px; color: var(--text-3); margin-top: 2px; }
-    .ex-open {
-      display: inline-flex; align-items: center; gap: 5px; font-size: 11px;
-      padding: 5px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border);
-      color: var(--text-2); background: var(--bg-2); white-space: nowrap;
-      text-decoration: none; transition: all 0.15s;
-    }
+    .ex-open { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; padding: 5px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border); color: var(--text-2); background: var(--bg-2); white-space: nowrap; text-decoration: none; transition: all 0.15s; flex-shrink: 0; }
     .ex-open:hover { border-color: var(--border-2); color: var(--text); }
-    .ex-platform-badge {
-      display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 20px;
-      border: 1px solid var(--border); color: var(--text-3); background: var(--bg-2); margin-top: 3px;
-    }
 
-    /* ── CONTACT BOTTOM ── */
+    /* CONTACT BOTTOM */
     .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 12px; max-width: 700px; }
-    .clink {
-      display: flex; align-items: center; gap: 12px; padding: 14px 16px;
-      background: var(--bg-2); border: 1px solid var(--border);
-      border-radius: var(--radius-md); transition: border-color 0.15s;
-    }
+    .clink { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius-md); transition: border-color 0.15s; }
     .clink:hover { border-color: var(--border-2); }
     .clink i { font-size: 18px; color: var(--text-2); }
     .clink-label { font-size: 11px; color: var(--text-3); margin-bottom: 2px; }
     .clink-val { font-size: 12px; font-weight: 500; }
 
-    /* ── FOOTER ── */
-    .footer-inner {
-      padding: 1.25rem 0; display: flex; justify-content: space-between;
-      align-items: center; flex-wrap: wrap; gap: 8px; font-size: 11px; color: var(--text-3);
-    }
+    /* FOOTER */
+    .footer-inner { padding: 1.25rem 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 11px; color: var(--text-3); }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 720px) {
       .hero { grid-template-columns: 1fr; gap: 2rem; }
       .two-col { grid-template-columns: 1fr; }
-      .col-divider { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 2rem; margin-top: 0; }
+      .col-divider { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 2rem; }
       .col-pad { padding-right: 0; }
       .hero-name { font-size: 28px; }
       .nav-links { display: none; }
@@ -253,22 +181,21 @@
         </a>
       </div>
     </div>
-
     <div class="contact-card">
       <p class="cc-title">Contact details</p>
       <a class="cc-row" href="mailto:smitsolanki288@gmail.com">
         <i class="ti ti-mail cc-icon"></i>
         <div><p class="cc-label">Email</p><p class="cc-value">smitsolanki288@gmail.com</p></div>
       </a>
-      <a class="cc-row" href="https://github.com/smitsolanki288" target="_blank" rel="noopener">
+      <a class="cc-row" href="https://github.com/smitsolanki288" target="_blank">
         <i class="ti ti-brand-github cc-icon"></i>
         <div><p class="cc-label">GitHub</p><p class="cc-value">github.com/smitsolanki288</p></div>
       </a>
-      <a class="cc-row" href="https://www.linkedin.com/in/smit-solanki-415a88414" target="_blank" rel="noopener">
+      <a class="cc-row" href="https://www.linkedin.com/in/smit-solanki-415a88414" target="_blank">
         <i class="ti ti-brand-linkedin cc-icon"></i>
         <div><p class="cc-label">LinkedIn</p><p class="cc-value">Smit Solanki</p></div>
       </a>
-      <a class="cc-row" href="https://drive.google.com/file/d/1lo1Mct55l6UG3pSLexZXDb83GGj3kr3Q/view?usp=sharing" target="_blank" rel="noopener">
+      <a class="cc-row" href="https://drive.google.com/file/d/1lo1Mct55l6UG3pSLexZXDb83GGj3kr3Q/view?usp=sharing" target="_blank">
         <i class="ti ti-file-cv cc-icon"></i>
         <div><p class="cc-label">Resume</p><p class="cc-value">Download PDF</p></div>
       </a>
@@ -324,45 +251,27 @@
     <div class="skills-grid">
       <div>
         <p class="skill-group-name">Automation & Workflows</p>
-        <div class="tags">
-          <span class="tag">n8n</span><span class="tag">Zapier</span><span class="tag">REST API</span>
-          <span class="tag">Webhooks</span><span class="tag">Google Sheets</span>
-        </div>
+        <div class="tags"><span class="tag">n8n</span><span class="tag">Zapier</span><span class="tag">REST API</span><span class="tag">Webhooks</span><span class="tag">Google Sheets</span></div>
       </div>
       <div>
         <p class="skill-group-name">CRM & Marketing</p>
-        <div class="tags">
-          <span class="tag">GoHighLevel</span><span class="tag">HubSpot</span><span class="tag">Salesforce</span>
-          <span class="tag">Lead Nurturing</span><span class="tag">Email & SMS</span>
-        </div>
+        <div class="tags"><span class="tag">GoHighLevel</span><span class="tag">HubSpot</span><span class="tag">Salesforce</span><span class="tag">Lead Nurturing</span><span class="tag">Email & SMS</span></div>
       </div>
       <div>
         <p class="skill-group-name">Frontend</p>
-        <div class="tags">
-          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
-          <span class="tag">jQuery</span><span class="tag">Tailwind CSS</span>
-          <span class="tag">React.js</span><span class="tag">Next.js</span>
-        </div>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">jQuery</span><span class="tag">Tailwind CSS</span><span class="tag">React.js</span><span class="tag">Next.js</span></div>
       </div>
       <div>
         <p class="skill-group-name">Backend</p>
-        <div class="tags">
-          <span class="tag">PHP</span><span class="tag">Laravel</span>
-          <span class="tag">CodeIgniter</span><span class="tag">Node.js</span>
-        </div>
+        <div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">CodeIgniter</span><span class="tag">Node.js</span></div>
       </div>
       <div>
         <p class="skill-group-name">CMS & E-commerce</p>
-        <div class="tags">
-          <span class="tag">WordPress</span><span class="tag">Shopify</span>
-          <span class="tag">Liquid</span><span class="tag">Webflow</span>
-        </div>
+        <div class="tags"><span class="tag">WordPress</span><span class="tag">Shopify</span><span class="tag">Liquid</span><span class="tag">Webflow</span><span class="tag">Wix</span><span class="tag">Kajabi</span></div>
       </div>
       <div>
         <p class="skill-group-name">Database</p>
-        <div class="tags">
-          <span class="tag">MySQL</span><span class="tag">Data Sync</span><span class="tag">Pipeline Mgmt</span>
-        </div>
+        <div class="tags"><span class="tag">MySQL</span><span class="tag">Data Sync</span><span class="tag">Pipeline Mgmt</span></div>
       </div>
     </div>
   </div>
@@ -376,17 +285,21 @@
     <p class="section-label">Projects & Work</p>
 
     <div class="proj-tabs">
-      <button class="proj-tab active" onclick="switchTab('projects', this)">All Projects</button>
-      <button class="proj-tab" onclick="switchTab('web', this)">Web Development</button>
-      <button class="proj-tab" onclick="switchTab('auto', this)">Automation</button>
+      <button class="proj-tab active" onclick="switchTab('projects', this)">
+        <i class="ti ti-layout-grid"></i> All Projects
+      </button>
+      <button class="proj-tab" onclick="switchTab('auto', this)">
+        <i class="ti ti-robot"></i> Automation
+      </button>
       <button class="proj-tab" onclick="switchTab('examples', this)">
-        <i class="ti ti-world" style="font-size:12px;vertical-align:middle;margin-right:3px;"></i>Live Work Examples
+        <i class="ti ti-world"></i> Live Work Examples
       </button>
     </div>
 
-    <!-- PROJECT CARDS -->
+    <!-- ALL / AUTOMATION PROJECT CARDS -->
     <div id="proj-cards">
       <div class="proj-grid">
+
         <div class="proj-card" data-cat="web">
           <div class="proj-icon">🛒</div>
           <p class="proj-title">E-Commerce Platform</p>
@@ -415,7 +328,6 @@
           <div class="proj-stack"><span class="tag">WordPress</span><span class="tag">PHP</span><span class="tag">jQuery</span></div>
           <div class="proj-footer">
             <a class="proj-btn" href="https://github.com/smitsolanki288" target="_blank"><i class="ti ti-brand-github"></i> GitHub</a>
-            <a class="proj-btn" href="https://www.hotelhub.com/" target="_blank"><i class="ti ti-external-link"></i> Live</a>
           </div>
         </div>
 
@@ -478,100 +390,183 @@
             <a class="proj-btn" href="https://github.com/smitsolanki288" target="_blank"><i class="ti ti-brand-github"></i> GitHub</a>
           </div>
         </div>
+
       </div>
     </div>
 
-    <!-- WORK EXAMPLES -->
-    <div id="work-examples" class="examples-section">
+    <!-- LIVE WORK EXAMPLES -->
+    <div id="work-examples" style="display:none;">
 
+      <!-- WordPress -->
       <div class="ex-group">
-        <p class="ex-group-title">WordPress Projects</p>
+        <div class="ex-group-header">
+          <p class="ex-group-title">WordPress</p>
+          <span class="ex-platform-badge">6 sites</span>
+        </div>
         <div class="ex-grid">
           <div class="ex-card">
-            <div>
-              <p class="ex-url">hotelhub.com</p>
-              <p class="ex-sub">Hotel & booking platform</p>
-              <span class="ex-platform-badge">WordPress</span>
-            </div>
-            <a class="ex-open" href="https://www.hotelhub.com/" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Visit</a>
+            <div><p class="ex-url">hotelhub.com</p><p class="ex-sub">Hotel & booking platform</p></div>
+            <a class="ex-open" href="https://www.hotelhub.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
           </div>
           <div class="ex-card">
-            <div>
-              <p class="ex-url">cipherdigital.com</p>
-              <p class="ex-sub">Digital agency website</p>
-              <span class="ex-platform-badge">WordPress</span>
-            </div>
-            <a class="ex-open" href="https://cipherdigital.com/" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Visit</a>
+            <div><p class="ex-url">cipherdigital.com</p><p class="ex-sub">Digital agency website</p></div>
+            <a class="ex-open" href="https://cipherdigital.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
           </div>
           <div class="ex-card">
-            <div>
-              <p class="ex-url">generalcondition.com</p>
-              <p class="ex-sub">Business & services</p>
-              <span class="ex-platform-badge">WordPress</span>
-            </div>
-            <a class="ex-open" href="https://generalcondition.com/" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Visit</a>
+            <div><p class="ex-url">generalcondition.com</p><p class="ex-sub">Business & services</p></div>
+            <a class="ex-open" href="https://generalcondition.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
           </div>
           <div class="ex-card">
-            <div>
-              <p class="ex-url">lebarteleur.com</p>
-              <p class="ex-sub">French business site</p>
-              <span class="ex-platform-badge">WordPress</span>
-            </div>
-            <a class="ex-open" href="https://lebarteleur.com/en/" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Visit</a>
+            <div><p class="ex-url">lebarteleur.com</p><p class="ex-sub">French business site</p></div>
+            <a class="ex-open" href="https://lebarteleur.com/en/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
           </div>
           <div class="ex-card">
-            <div>
-              <p class="ex-url">r11.solutions</p>
-              <p class="ex-sub">Tech solutions company</p>
-              <span class="ex-platform-badge">WordPress</span>
-            </div>
-            <a class="ex-open" href="https://r11.solutions/" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Visit</a>
+            <div><p class="ex-url">r11.solutions</p><p class="ex-sub">Tech solutions company</p></div>
+            <a class="ex-open" href="https://r11.solutions/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
           </div>
           <div class="ex-card">
-            <div>
-              <p class="ex-url">youengage.me</p>
-              <p class="ex-sub">Audience engagement platform</p>
-              <span class="ex-platform-badge">WordPress</span>
-            </div>
-            <a class="ex-open" href="https://youengage.me/" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Visit</a>
+            <div><p class="ex-url">youengage.me</p><p class="ex-sub">Audience engagement platform</p></div>
+            <a class="ex-open" href="https://youengage.me/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
           </div>
         </div>
       </div>
 
+      <!-- Shopify -->
       <div class="ex-group">
-        <p class="ex-group-title">Shopify Projects</p>
+        <div class="ex-group-header">
+          <p class="ex-group-title">Shopify</p>
+          <span class="ex-platform-badge">5 sites</span>
+        </div>
         <div class="ex-grid">
           <div class="ex-card">
-            <div>
-              <p class="ex-url">hexpens.com</p>
-              <p class="ex-sub">Custom pen & stationery store</p>
-              <span class="ex-platform-badge">Shopify</span>
-            </div>
-            <a class="ex-open" href="https://www.hexpens.com/" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Visit</a>
+            <div><p class="ex-url">hexpens.com</p><p class="ex-sub">Custom pen & stationery store</p></div>
+            <a class="ex-open" href="https://www.hexpens.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
           </div>
           <div class="ex-card">
-            <div>
-              <p class="ex-url">tonal.com</p>
-              <p class="ex-sub">Smart home gym equipment</p>
-              <span class="ex-platform-badge">Shopify</span>
-            </div>
-            <a class="ex-open" href="https://tonal.com/" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Visit</a>
+            <div><p class="ex-url">tonal.com</p><p class="ex-sub">Smart home gym equipment</p></div>
+            <a class="ex-open" href="https://tonal.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
           </div>
           <div class="ex-card">
-            <div>
-              <p class="ex-url">allbirds.com</p>
-              <p class="ex-sub">Sustainable footwear brand</p>
-              <span class="ex-platform-badge">Shopify</span>
-            </div>
-            <a class="ex-open" href="https://www.allbirds.com/" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Visit</a>
+            <div><p class="ex-url">allbirds.com</p><p class="ex-sub">Sustainable footwear brand</p></div>
+            <a class="ex-open" href="https://www.allbirds.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
           </div>
           <div class="ex-card">
-            <div>
-              <p class="ex-url">headphonezone.in</p>
-              <p class="ex-sub">Premium audio accessories</p>
-              <span class="ex-platform-badge">Shopify</span>
-            </div>
-            <a class="ex-open" href="https://www.headphonezone.in/" target="_blank" rel="noopener"><i class="ti ti-external-link"></i> Visit</a>
+            <div><p class="ex-url">headphonezone.in</p><p class="ex-sub">Premium audio accessories</p></div>
+            <a class="ex-open" href="https://www.headphonezone.in/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+          <div class="ex-card">
+            <div><p class="ex-url">fctrylab.com</p><p class="ex-sub">Design & lifestyle products</p></div>
+            <a class="ex-open" href="https://fctrylab.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next.js -->
+      <div class="ex-group">
+        <div class="ex-group-header">
+          <p class="ex-group-title">Next.js</p>
+          <span class="ex-platform-badge">3 sites</span>
+        </div>
+        <div class="ex-grid">
+          <div class="ex-card">
+            <div><p class="ex-url">sohub.digital</p><p class="ex-sub">Digital services platform</p></div>
+            <a class="ex-open" href="https://sohub.digital/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+          <div class="ex-card">
+            <div><p class="ex-url">amplitude.com</p><p class="ex-sub">Product analytics platform</p></div>
+            <a class="ex-open" href="https://amplitude.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+          <div class="ex-card">
+            <div><p class="ex-url">apechain.com</p><p class="ex-sub">Blockchain ecosystem</p></div>
+            <a class="ex-open" href="https://apechain.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHP Laravel -->
+      <div class="ex-group">
+        <div class="ex-group-header">
+          <p class="ex-group-title">PHP Laravel</p>
+          <span class="ex-platform-badge">3 sites</span>
+        </div>
+        <div class="ex-grid">
+          <div class="ex-card">
+            <div><p class="ex-url">exolnet.com</p><p class="ex-sub">Web development agency</p></div>
+            <a class="ex-open" href="https://www.exolnet.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+          <div class="ex-card">
+            <div><p class="ex-url">imflorea.dev</p><p class="ex-sub">Developer portfolio</p></div>
+            <a class="ex-open" href="https://imflorea.dev/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+          <div class="ex-card">
+            <div><p class="ex-url">akfaholding.com</p><p class="ex-sub">Corporate holding group</p></div>
+            <a class="ex-open" href="https://akfaholding.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Webflow -->
+      <div class="ex-group">
+        <div class="ex-group-header">
+          <p class="ex-group-title">Webflow</p>
+          <span class="ex-platform-badge">5 sites</span>
+        </div>
+        <div class="ex-grid">
+          <div class="ex-card">
+            <div><p class="ex-url">studiolinear.com</p><p class="ex-sub">Design studio</p></div>
+            <a class="ex-open" href="https://studiolinear.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+          <div class="ex-card">
+            <div><p class="ex-url">studioskulptur.com</p><p class="ex-sub">Creative studio</p></div>
+            <a class="ex-open" href="https://www.studioskulptur.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+          <div class="ex-card">
+            <div><p class="ex-url">refokus.com</p><p class="ex-sub">Webflow agency</p></div>
+            <a class="ex-open" href="https://www.refokus.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+          <div class="ex-card">
+            <div><p class="ex-url">attentive.com</p><p class="ex-sub">SMS marketing platform</p></div>
+            <a class="ex-open" href="https://www.attentive.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+          <div class="ex-card">
+            <div><p class="ex-url">finsweet.com</p><p class="ex-sub">Webflow tools & resources</p></div>
+            <a class="ex-open" href="https://finsweet.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wix -->
+      <div class="ex-group">
+        <div class="ex-group-header">
+          <p class="ex-group-title">Wix</p>
+          <span class="ex-platform-badge">2 sites</span>
+        </div>
+        <div class="ex-grid">
+          <div class="ex-card">
+            <div><p class="ex-url">visuvate.com</p><p class="ex-sub">Creative agency</p></div>
+            <a class="ex-open" href="https://www.visuvate.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+          <div class="ex-card">
+            <div><p class="ex-url">zhooshcreative.com</p><p class="ex-sub">Design & branding studio</p></div>
+            <a class="ex-open" href="https://www.zhooshcreative.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kajabi -->
+      <div class="ex-group">
+        <div class="ex-group-header">
+          <p class="ex-group-title">Kajabi</p>
+          <span class="ex-platform-badge">2 sites</span>
+        </div>
+        <div class="ex-grid">
+          <div class="ex-card">
+            <div><p class="ex-url">spotonagility.com</p><p class="ex-sub">Dog agility training courses</p></div>
+            <a class="ex-open" href="https://www.spotonagility.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
+          </div>
+          <div class="ex-card">
+            <div><p class="ex-url">alphastute.com</p><p class="ex-sub">Online coaching & courses</p></div>
+            <a class="ex-open" href="https://www.alphastute.com/" target="_blank"><i class="ti ti-external-link"></i> Visit</a>
           </div>
         </div>
       </div>
@@ -591,15 +586,15 @@
         <i class="ti ti-mail"></i>
         <div><p class="clink-label">Email</p><p class="clink-val">smitsolanki288@gmail.com</p></div>
       </a>
-      <a href="https://github.com/smitsolanki288" target="_blank" rel="noopener" class="clink">
+      <a href="https://github.com/smitsolanki288" target="_blank" class="clink">
         <i class="ti ti-brand-github"></i>
         <div><p class="clink-label">GitHub</p><p class="clink-val">smitsolanki288</p></div>
       </a>
-      <a href="https://www.linkedin.com/in/smit-solanki-415a88414" target="_blank" rel="noopener" class="clink">
+      <a href="https://www.linkedin.com/in/smit-solanki-415a88414" target="_blank" class="clink">
         <i class="ti ti-brand-linkedin"></i>
         <div><p class="clink-label">LinkedIn</p><p class="clink-val">Smit Solanki</p></div>
       </a>
-      <a href="https://drive.google.com/file/d/1lo1Mct55l6UG3pSLexZXDb83GGj3kr3Q/view?usp=sharing" target="_blank" rel="noopener" class="clink">
+      <a href="https://drive.google.com/file/d/1lo1Mct55l6UG3pSLexZXDb83GGj3kr3Q/view?usp=sharing" target="_blank" class="clink">
         <i class="ti ti-file-cv"></i>
         <div><p class="clink-label">Resume</p><p class="clink-val">Download PDF</p></div>
       </a>
@@ -607,7 +602,6 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <hr class="divider">
 <div class="wrap">
   <div class="footer-inner">
@@ -620,10 +614,8 @@
   function switchTab(type, btn) {
     document.querySelectorAll('.proj-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
-
     const cards = document.getElementById('proj-cards');
     const examples = document.getElementById('work-examples');
-
     if (type === 'examples') {
       cards.style.display = 'none';
       examples.style.display = 'block';
